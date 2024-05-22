@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Models\Item;
@@ -10,7 +9,8 @@ class ItemController extends Controller
     // Get all items
     public function index()
     {
-        return Item::all();
+        $items = Item::all();
+        return response()->json($items);
     }
 
     // Create a new item
@@ -31,52 +31,50 @@ class ItemController extends Controller
     // Get a single item
     public function show($id)
     {
-        $item = Item::findOrFail($id);
+        $item = Item::find($id);
+        if (!$item) {
+            return response()->json(['error' => 'Item not found.'], 404);
+        }
         return response()->json($item);
     }
 
     // Update an item
     public function update(Request $request, string $id)
     {
-        $ItemskUpdate = Item::find($id);
-        if ($ItemskUpdate) {
-            $validatedData = $request->validate([
-                'product_name' => 'sometimes|required|string|max:255',
-                'category' => 'sometimes|required|string|max:255',
-                'description' => 'nullable|string',
-                'item_type' => 'sometimes|required|string|max:255',
-                'price' => 'sometimes|required|numeric',
-            ]);
+        $item = Item::find($id);
+        if (!$item) {
+            return response()->json(['error' => 'Item not found.'], 404);
+        }
 
-            $ItemskUpdate->product_name = $validatedData['product_name'];
-            $ItemskUpdate->category = $validatedData['category'];
-            $ItemskUpdate->description = $validatedData['description'];
-            $ItemskUpdate->item_type = $validatedData['item_type'];
-            $ItemskUpdate->price = $validatedData['price'];
+        $validatedData = $request->validate([
+            'product_name' => 'sometimes|required|string|max:255',
+            'category' => 'sometimes|required|string|max:255',
+            'description' => 'nullable|string',
+            'item_type' => 'sometimes|required|string|max:255',
+            'price' => 'sometimes|required|numeric',
+        ]);
 
-            if ($ItemskUpdate->save()) {
-                return response()->json([
-                    'Message' => 'Stock updated with success.',
-                    'Stock' => $ItemskUpdate
-                ], 200);
-            } else {
-                return response()->json([
-                    'Message' => 'We could not update the stock.',
-                ], 500);
-            }
+        $item->fill($validatedData);
+
+        if ($item->save()) {
+            return response()->json(['message' => 'Item updated successfully.', 'item' => $item], 200);
         } else {
-            return response()->json([
-                'Message' => 'We could not find the stock.',
-            ], 500);
+            return response()->json(['error' => 'Failed to update item.'], 500);
         }
     }
-
 
     // Delete an item
     public function destroy($id)
     {
-        $item = Item::findOrFail($id);
-        $item->delete();
-        return response()->json(null, 204);
+        $item = Item::find($id);
+        if (!$item) {
+            return response()->json(['error' => 'Item not found.'], 404);
+        }
+
+        if ($item->delete()) {
+            return response()->json(['message' => 'Item deleted successfully.'], 200);
+        } else {
+            return response()->json(['error' => 'Failed to delete item.'], 500);
+        }
     }
 }
