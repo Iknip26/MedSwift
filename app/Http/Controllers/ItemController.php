@@ -41,11 +41,11 @@ class ItemController extends Controller
         $ItemskUpdate = Item::find($id);
         if ($ItemskUpdate) {
             $validatedData = $request->validate([
-                'product_name' => 'sometimes|required|string|max:255',
-                'category' => 'sometimes|required|string|max:255',
+                'product_name' => 'required|string|max:255',
+                'category' => 'required|string|max:255',
                 'description' => 'nullable|string',
-                'item_type' => 'sometimes|required|string|max:255',
-                'price' => 'sometimes|required|numeric',
+                'item_type' => 'required|string|max:255',
+                'price' => 'required|numeric',
             ]);
 
             $ItemskUpdate->product_name = $validatedData['product_name'];
