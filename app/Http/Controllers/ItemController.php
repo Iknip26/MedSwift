@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\Models\Item;
@@ -9,8 +10,7 @@ class ItemController extends Controller
     // Get all items
     public function index()
     {
-        $items = Item::all();
-        return response()->json($items);
+        return Item::all();
     }
 
     // Create a new item
@@ -31,10 +31,7 @@ class ItemController extends Controller
     // Get a single item
     public function show($id)
     {
-        $item = Item::find($id);
-        if (!$item) {
-            return response()->json(['error' => 'Item not found.'], 404);
-        }
+        $item = Item::findOrFail($id);
         return response()->json($item);
     }
 
@@ -51,27 +48,35 @@ class ItemController extends Controller
                 'price' => 'required|numeric',
             ]);
 
-        $item->fill($validatedData);
+            $ItemskUpdate->product_name = $validatedData['product_name'];
+            $ItemskUpdate->category = $validatedData['category'];
+            $ItemskUpdate->description = $validatedData['description'];
+            $ItemskUpdate->item_type = $validatedData['item_type'];
+            $ItemskUpdate->price = $validatedData['price'];
 
-        if ($item->save()) {
-            return response()->json(['message' => 'Item updated successfully.', 'item' => $item], 200);
+            if ($ItemskUpdate->save()) {
+                return response()->json([
+                    'Message' => 'Stock updated with success.',
+                    'Stock' => $ItemskUpdate
+                ], 200);
+            } else {
+                return response()->json([
+                    'Message' => 'We could not update the stock.',
+                ], 500);
+            }
         } else {
-            return response()->json(['error' => 'Failed to update item.'], 500);
+            return response()->json([
+                'Message' => 'We could not find the stock.',
+            ], 500);
         }
     }
+
 
     // Delete an item
     public function destroy($id)
     {
-        $item = Item::find($id);
-        if (!$item) {
-            return response()->json(['error' => 'Item not found.'], 404);
-        }
-
-        if ($item->delete()) {
-            return response()->json(['message' => 'Item deleted successfully.'], 200);
-        } else {
-            return response()->json(['error' => 'Failed to delete item.'], 500);
-        }
+        $item = Item::findOrFail($id);
+        $item->delete();
+        return response()->json(null, 204);
     }
 }
