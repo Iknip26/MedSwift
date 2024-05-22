@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Stock;
 use App\Models\Stocks;
 use Illuminate\Http\Request;
 
 class stocksController extends Controller
 {
     public function indexstocks (){
-        $stock = Stocks::all();
-        return Stocks::collection(($stock));
+        $stock = Stock::all();
+        return Stock::collection(($stock));
     }
 
     public function postStock(Request $request)
@@ -20,7 +21,7 @@ class stocksController extends Controller
             'stock' => 'required|string',
         ]);
 
-        $stockPost = Stocks::create($request->all());
+        $stockPost = Stock::create($request->all());
         if ($stockPost) {
             return response()->json([
                 'Message' => 'Success!',
@@ -35,7 +36,7 @@ class stocksController extends Controller
 
     public function updateStock(Request $request, string $id)
     {
-        $stockUpdate = Stocks::find($id);
+        $stockUpdate = Stock::find($id);
         if ($stockUpdate) {
             $validatedData = $request->validate([
                 'hospital_id' => 'required|exists:hospitals,id',
@@ -66,7 +67,7 @@ class stocksController extends Controller
 
     public function deleteStock(string $id)
     {
-        $stockDelete = Stocks::find($id);
+        $stockDelete = Stock::find($id);
         if ($stockDelete) {
             $stockDelete->delete();
             return response()->json([
