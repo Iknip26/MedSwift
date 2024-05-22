@@ -36,20 +36,41 @@ class ItemController extends Controller
     }
 
     // Update an item
-    public function update(Request $request, $id)
+    public function update(Request $request, string $id)
     {
-        $validatedData = $request->validate([
-            'product_name' => 'sometimes|required|string|max:255',
-            'category' => 'sometimes|required|string|max:255',
-            'description' => 'nullable|string',
-            'item_type' => 'sometimes|required|string|max:255',
-            'price' => 'sometimes|required|numeric',
-        ]);
+        $ItemskUpdate = Item::find($id);
+        if ($ItemskUpdate) {
+            $validatedData = $request->validate([
+                'product_name' => 'sometimes|required|string|max:255',
+                'category' => 'sometimes|required|string|max:255',
+                'description' => 'nullable|string',
+                'item_type' => 'sometimes|required|string|max:255',
+                'price' => 'sometimes|required|numeric',
+            ]);
 
-        $item = Item::findOrFail($id);
-        $item->update($validatedData);
-        return response()->json($item);
+            $ItemskUpdate->product_name = $validatedData['product_name'];
+            $ItemskUpdate->category = $validatedData['category'];
+            $ItemskUpdate->description = $validatedData['description'];
+            $ItemskUpdate->item_type = $validatedData['item_type'];
+            $ItemskUpdate->price = $validatedData['price'];
+
+            if ($ItemskUpdate->save()) {
+                return response()->json([
+                    'Message' => 'Stock updated with success.',
+                    'Stock' => $ItemskUpdate
+                ], 200);
+            } else {
+                return response()->json([
+                    'Message' => 'We could not update the stock.',
+                ], 500);
+            }
+        } else {
+            return response()->json([
+                'Message' => 'We could not find the stock.',
+            ], 500);
+        }
     }
+
 
     // Delete an item
     public function destroy($id)
