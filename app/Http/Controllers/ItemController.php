@@ -41,18 +41,15 @@ class ItemController extends Controller
     // Update an item
     public function update(Request $request, string $id)
     {
-        $item = Item::find($id);
-        if (!$item) {
-            return response()->json(['error' => 'Item not found.'], 404);
-        }
-
-        $validatedData = $request->validate([
-            'product_name' => 'sometimes|required|string|max:255',
-            'category' => 'sometimes|required|string|max:255',
-            'description' => 'nullable|string',
-            'item_type' => 'sometimes|required|string|max:255',
-            'price' => 'sometimes|required|numeric',
-        ]);
+        $ItemskUpdate = Item::find($id);
+        if ($ItemskUpdate) {
+            $validatedData = $request->validate([
+                'product_name' => 'required|string|max:255',
+                'category' => 'required|string|max:255',
+                'description' => 'nullable|string',
+                'item_type' => 'required|string|max:255',
+                'price' => 'required|numeric',
+            ]);
 
         $item->fill($validatedData);
 
