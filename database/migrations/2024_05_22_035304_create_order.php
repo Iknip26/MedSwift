@@ -16,12 +16,12 @@ return new class extends Migration
             $table->unsignedBigInteger('customer_id');
             $table->unsignedBigInteger('hospital_id');
             $table->date('order_date');
-            $table->enum('payment_method', ['cash', 'cashless']);
+            $table->enum('payment_method', ['BCA', 'Mandiri', 'BNI', 'BRI', 'BSI']);
             $table->boolean('isPaymentSuccess');
             $table->date('shipment_date');
             $table->string('shipment_address', 255);
             $table->timestamps();
-
+            
             $table->foreign('customer_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('hospital_id')->references('id')->on('hospitals')->onDelete('cascade');
         });
