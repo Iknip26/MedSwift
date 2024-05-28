@@ -20,6 +20,17 @@ class OrderController extends Controller
         return response()->json($orders);
     }
 
+    public function show($id)
+    {
+        $item = Order::findOrFail($id);
+        if (!$item) {
+            return response()->json([
+                'message' => 'Order not found.'
+            ], 404);
+        }
+        return response()->json($item);
+    }
+
     /**
      * Store a newly created resource in storage.
      *

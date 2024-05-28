@@ -16,7 +16,7 @@ class OrdersTableSeeder extends Seeder
     {
         DB::table('orders')->insert([
             [
-                'customer_id' => 1,
+                'customer_id' => 3,
                 'hospital_id' => 1,
                 'order_date' => '2024-05-22',
                 'payment_method' => 'cash',

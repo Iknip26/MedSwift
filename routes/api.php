@@ -22,8 +22,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::put('updateItem/{id}', [ItemController::class, 'update']);
-Route::post('storeItems/{id}', [ItemController::class, 'store']);
+Route::post('storeItems/', [ItemController::class, 'store']);
 Route::get('showItems/', [ItemController::class, 'index']);
 Route::get('showItems/{id}', [ItemController::class, 'show']);
+Route::delete('deleteitem/{id}', [ItemController::class, 'deleteitem']);
 
 Route::apiResource('orders', OrderController::class);

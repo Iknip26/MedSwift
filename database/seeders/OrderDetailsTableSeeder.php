@@ -17,7 +17,7 @@ class OrderDetailsTableSeeder extends Seeder
         DB::table('order_details')->insert([
             [
                 'item_id' => 7,
-                'order_id' => 5,
+                'order_id' => 7,
                 'value' => 2,
                 'note' => 'Beli 2 buah',
                 'created_at' => now(),
@@ -25,7 +25,7 @@ class OrderDetailsTableSeeder extends Seeder
             ],
             [
                 'item_id' => 8,
-                'order_id' => 6,
+                'order_id' => 8,
                 'value' => 1,
                 'note' => 'Beli 1 buah',
                 'created_at' => now(),
@@ -33,7 +33,7 @@ class OrderDetailsTableSeeder extends Seeder
             ],
             [
                 'item_id' => 9,
-                'order_id' => 6,
+                'order_id' => 8,
                 'value' => 3,
                 'note' => 'Beli 3 buah',
                 'created_at' => now(),
@@ -41,7 +41,7 @@ class OrderDetailsTableSeeder extends Seeder
             ],
             [
                 'item_id' => 10,
-                'order_id' => 7,
+                'order_id' => 9,
                 'value' => 2,
                 'note' => 'Beli 2 buah',
                 'created_at' => now(),
