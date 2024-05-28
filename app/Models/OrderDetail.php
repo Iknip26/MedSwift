@@ -5,15 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Hospital extends Model
+class OrderDetail extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'name',
-        'logo',
-        'adress',
-        'desc',
-        'open_time',
-        'open_time',
+        'item_id',
+        'order_id',
+        'value',
+        'note'
     ];
 }
