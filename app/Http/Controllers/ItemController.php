@@ -77,6 +77,6 @@ class ItemController extends Controller
     {
         $item = Item::findOrFail($id);
         $item->delete();
-        return response()->json(null, 204);
+        return response()->json("succesfully deteled items", 204);
     }
 }

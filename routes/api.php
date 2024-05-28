@@ -25,5 +25,7 @@ Route::put('updateItem/{id}', [ItemController::class, 'update']);
 Route::post('storeItems/{id}', [ItemController::class, 'store']);
 Route::get('showItems/', [ItemController::class, 'index']);
 Route::get('showItems/{id}', [ItemController::class, 'show']);
+Route::delete('deleteItems/{id}', [ItemController::class, 'destroy']);
+
 
 Route::apiResource('orders', OrderController::class);
