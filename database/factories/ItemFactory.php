@@ -17,9 +17,12 @@ class ItemFactory extends Factory
         return [
             'product_name' => $this->faker->word,
             'category' => $this->faker->word,
-            'description' => $this->faker->paragraph,
-            'item_type' => $this->faker->word,
-            'price' => $this->faker->randomFloat(2, 10, 1000), // price between 10 and 1000
+            'description' => $this->faker->sentence,
+            'item_type' => $this->faker->randomElement(['alkes', 'obat']),
+            'price' => $this->faker->randomFloat(2, 1, 100),
+            'image_picture' => $this->faker->imageUrl,
+            'created_at' => now(),
+            'updated_at' => now(),
         ];
     }
 }

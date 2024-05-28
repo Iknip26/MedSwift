@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('product_name');
             $table->string('category');
             $table->text('description')->nullable();
-            $table->string('item_type');
+            $table->enum('item_type', ["alkes", "obat"]);
             $table->decimal('price', 8, 2);
             $table->string('image_picture');
             $table->timestamps();
