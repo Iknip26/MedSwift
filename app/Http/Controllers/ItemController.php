@@ -11,6 +11,7 @@ class ItemController extends Controller
     public function index()
     {
         return Item::all();
+        
     }
 
     // Create a new item
@@ -72,11 +73,18 @@ class ItemController extends Controller
     }
 
 
-    // Delete an item
-    public function destroy($id)
-    {
-        $item = Item::findOrFail($id);
-        $item->delete();
-        return response()->json("succesfully deteled items", 204);
+    public function deleteitem(string $id){
+        $itemdelete = Item::find($id);
+        if ($itemdelete) {
+            $itemdelete->delete();
+            return response()->json([
+                'Message: ' => 'item delete with success.',
+                'item: ' => $itemdelete
+            ], 200);
+        } else {
+            return response([
+                'Message: ' => 'We could not delete the item.',
+            ], 500);
+        }
     }
 }
