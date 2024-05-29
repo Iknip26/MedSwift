@@ -14,7 +14,7 @@
       <h1 class="text-4xl text-med">Med<span class="text-4xl text-swift">Swift</span></h1>
     </a>
     <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-      <button type="button" class="text-nav_warna hover:text-white border border-swift hover:bg-swift focus:ring-4 focus:outline-none focus:ring-nav_warna rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Masuk/Daftar</button>
+      <a href="/login" type="button" class="text-nav_warna hover:text-white border border-swift hover:bg-swift focus:ring-4 focus:outline-none focus:ring-nav_warna rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Masuk/Daftar</a>
     </div>
     <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
       <ul class="flex flex-col p-4 md:p-0 mt-4 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0">
@@ -35,7 +35,7 @@
   </div>
 </nav>
 
-<div class="w-full flex flex-col mt-14 items-center justify-center bg-gradient-to-br from-biru via-slate-200 to-ping h-screen">
+<div class="w-full flex flex-col mt-14 fixed items-center justify-center bg-gradient-to-br from-biru via-slate-200 to-ping h-screen">
   <img src="../img/Frame.png" class="w-745 h-716 ml-auto">
 
   <div class="absolute w-400 mr-120">
