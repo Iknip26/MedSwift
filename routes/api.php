@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\HospitalController;
+use App\Http\Controllers\DrugController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\OrderController;
 use App\Models\Item;
@@ -36,3 +36,4 @@ Route::delete('deleteitem/{id}', [ItemController::class, 'deleteitem']);
 
 Route::apiResource('hospital', HospitalController::class);
 Route::apiResource('orders', OrderController::class);
+Route::apiResource('drug', DrugController::class);
