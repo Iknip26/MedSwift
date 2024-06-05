@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Drug extends Model
 {
     use HasFactory;
-    protected $table = 'drugs';
+
     protected $fillable = [
         'item_id',
         'komposisi',
@@ -16,4 +16,9 @@ class Drug extends Model
         'dosage',
         'using_guide',
     ];
+
+    public function item()
+    {
+        return $this->belongsTo(Item::class, 'item_id');
+    }
 }

@@ -8,12 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Hospital extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'name',
+        'logo',
         'logo',
         'adress',
         'desc',
         'open_time',
-        'open_time',
+        'close_time',
     ];
 }

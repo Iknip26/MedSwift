@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'customer_id',
         'hospital_id',
@@ -17,4 +18,14 @@ class Order extends Model
         'shipment_date',
         'shipment_address',
     ];
+
+    public function customer()
+    {
+        return $this->belongsTo(User::class, 'customer_id');
+    }
+
+    public function hospital()
+    {
+        return $this->belongsTo(Hospital::class, 'hospital_id');
+    }
 }
