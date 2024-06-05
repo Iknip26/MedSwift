@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HospitalController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\OrderController;
 use App\Models\Item;
@@ -27,4 +28,11 @@ Route::get('showItems/', [ItemController::class, 'index']);
 Route::get('showItems/{id}', [ItemController::class, 'show']);
 Route::delete('deleteitem/{id}', [ItemController::class, 'deleteitem']);
 
+// Route::put('updateHospital/{id}', [HospitalController::class, 'update']);
+// Route::post('storeHospital/', [HospitalController::class, 'store']);
+// Route::get('showHospital/', [HospitalController::class, 'index']);
+// Route::get('showHospital/{id}', [HospitalController::class, 'show']);
+// Route::delete('deleteHospital/{id}', [HospitalController::class, 'deleteitem']);
+
+Route::apiResource('hospital', HospitalController::class);
 Route::apiResource('orders', OrderController::class);
