@@ -10,6 +10,7 @@ class Drug extends Model
     use HasFactory;
     protected $table = 'drugs';
     protected $fillable = [
+        'item_id',
         'komposisi',
         'side_effect',
         'dosage',

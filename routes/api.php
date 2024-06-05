@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DrugController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\OrderController;
 use App\Models\Item;
@@ -28,3 +29,4 @@ Route::get('showItems/{id}', [ItemController::class, 'show']);
 Route::delete('deleteitem/{id}', [ItemController::class, 'deleteitem']);
 
 Route::apiResource('orders', OrderController::class);
+Route::apiResource('drug', DrugController::class);
