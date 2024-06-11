@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\DrugController;
+use App\Http\Controllers\HospitalController;
+use App\Http\Controllers\stocksController;
 use App\Models\Item;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -34,4 +37,24 @@ Route::get('showItems/', [ItemController::class, 'index']);
 Route::get('showItems/{id}', [ItemController::class, 'show']);
 Route::delete('deleteitem/{id}', [ItemController::class, 'deleteitem']);
 
+// Route::put('updateHospital/{id}', [HospitalController::class, 'update']);
+// Route::post('storeHospital/', [HospitalController::class, 'store']);
+// Route::get('showHospital/', [HospitalController::class, 'index']);
+// Route::get('showHospital/{id}', [HospitalController::class, 'show']);
+// Route::delete('deleteHospital/{id}', [HospitalController::class, 'deleteitem']);
+
+Route::apiResource('hospital', HospitalController::class)->names([
+    'index'   => 'hospital.index',
+    'store'   => 'hospital.store',
+    'show'    => 'hospital.show',
+    'update'  => 'hospital.update',
+    'destroy' => 'hospital.destroy',
+]);
 Route::apiResource('orders', OrderController::class);
+Route::apiResource('drug', DrugController::class);
+
+Route::apiResource('stoks', stocksController::class)->names([
+    'index' => 'stoks.index',
+    'show' => 'stoks.show',
+]);
+
