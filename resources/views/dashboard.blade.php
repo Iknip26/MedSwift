@@ -1,48 +1,54 @@
 <!doctype html>
 <html>
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  @vite('resources/css/app.css')
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @vite('resources/css/app.css')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
+
 <body class="bg-gradient-to-r from-blue-50 to-purple-50 min-h-screen relative">
-  <nav class="bg-white fixed w-full z-20 top-0 start-0 border-b">
-    <div class="max-w-screen-xl flex items-center justify-between mx-auto p-4">
-      <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
-        <h1 class="text-4xl text-med">Med<span class="text-4xl text-swift">Swift</span></h1>
-      </a>
-      <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-        <button type="button" class="text-nav_warna hover:text-white border border-swift hover:bg-swift focus:ring-4 focus:outline-none focus:ring-nav_warna rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Masuk/Daftar</button>
-      </div>
-      <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
-        <ul class="flex flex-col p-4 md:p-0 mt-4 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0">
-          <li>
-            <a href="#" class="block py-2 px-3 text-xl text-nav_warna hover:underline">Home</a>
-          </li>
-          <li>
-            <a href="#" class="block py-2 px-3 text-xl text-nav_warna hover:underline">About</a>
-          </li>
-          <li>
-            <a href="#" class="block py-2 px-3 text-xl text-nav_warna hover:underline">Feature</a>
-          </li>
-          <li>
-            <a href="#" class="block py-2 px-3 text-xl text-nav_warna hover:underline">Contact</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+    <nav class="bg-white fixed w-full z-20 top-0 start-0 border-b">
+        <div class="max-w-screen-xl flex items-center justify-between mx-auto p-4">
+            <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+                <h1 class="text-4xl text-med">Med<span class="text-4xl text-swift">Swift</span></h1>
+            </a>
+            <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+                <button type="button"
+                    class="text-nav_warna hover:text-white border border-swift hover:bg-swift focus:ring-4 focus:outline-none focus:ring-nav_warna rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Masuk/Daftar</button>
+            </div>
+            <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
+                <ul
+                    class="flex flex-col p-4 md:p-0 mt-4 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0">
+                    <li>
+                        <a href="#" class="block py-2 px-3 text-xl text-nav_warna hover:underline">Home</a>
+                    </li>
+                    <li>
+                        <a href="#" class="block py-2 px-3 text-xl text-nav_warna hover:underline">About</a>
+                    </li>
+                    <li>
+                        <a href="#" class="block py-2 px-3 text-xl text-nav_warna hover:underline">Feature</a>
+                    </li>
+                    <li>
+                        <a href="#" class="block py-2 px-3 text-xl text-nav_warna hover:underline">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-  <div class="w-full flex flex-col mt-14 items-center justify-center bg-gradient-to-br from-biru via-slate-200 to-ping">
-    <img src="../img/top-view-pills-cure-removebg-preview 1.png" class="w-2/3 h-1/4 ml-auto">
-    <div class="absolute top-20 left-32">
-      <h5 class="text-6xl font-semibold tracking-tight mb-4">
-        Optimize your Healthcare: <br> Easily order Prescription <br> Medications!
-      </h5>
+    <div
+        class="w-full flex flex-col mt-14 items-center justify-center bg-gradient-to-br from-biru via-slate-200 to-ping">
+        <img src="../img/top-view-pills-cure-removebg-preview 1.png" class="w-2/3 h-1/4 ml-auto">
+        <div class="absolute top-20 left-32">
+            <h5 class="text-6xl font-semibold tracking-tight mb-4">
+                Optimize your Healthcare: <br> Easily order Prescription <br> Medications!
+            </h5>
+        </div>
     </div>
-  </div>
 
-  <!-- <div class="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <!-- <div class="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
     <form class="max-w-lg mx-auto">
       <div class="flex">
           <label for="search-dropdown" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Your Email</label>
@@ -78,117 +84,76 @@
     </form>
   </div> -->
 
-  <div class="mt-10">
-    <p class="text-4xl font-semibold text-gray-900 dark:text-white mt-10 ml-48">Choose Your Hospital</p>
-  </div>
+    <div class="mt-10">
+        <p class="text-4xl font-semibold text-gray-900 dark:text-white mt-10 ml-48">Choose Your Hospital</p>
+    </div>
 
-  <div class="grid grid-cols-3 auto-cols-min mt-10">
-    <div class="w-full max-w-xs bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 justify-self-end">
-      <a href="#">
-          <img class="p-8 rounded-t-lg w-3/4 mx-auto" src="../img/riski amalia.png" alt="product image" />
-      </a>
-      <div class="px-5 pb-5">
-          <a href="#">
-              <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white text-center">Riski Amalia Medika</h5>
-          </a>
-      </div>
+    <div id="hospital-data-container" class="grid grid-cols-3 auto-cols-min mt-10">
+        <!-- Data will be appended here -->
     </div>
-    <div class="w-full max-w-xs bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mx-auto">
-      <a href="#">
-          <img class="p-8 rounded-t-lg w-3/4 mx-auto" src="../img/riski amalia.png" alt="product image" />
-      </a>
-      <div class="px-5 pb-5">
-          <a href="#">
-              <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white text-center">Riski Amalia Medika</h5>
-          </a>
-      </div>
-    </div>
-    <div class="w-full max-w-xs bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 justify-self-start">
-      <a href="#">
-          <img class="p-8 rounded-t-lg w-3/4 mx-auto" src="../img/riski amalia.png" alt="product image" />
-      </a>
-      <div class="px-5 pb-5">
-          <a href="#">
-              <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white text-center">Riski Amalia Medika</h5>
-          </a>
-      </div>
-    </div>
-  </div>
-
-  <div class="grid grid-cols-3 auto-cols-min mt-10">
-    <div class="w-full max-w-xs bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 justify-self-end">
-      <a href="#">
-          <img class="p-8 rounded-t-lg w-3/4 mx-auto" src="../img/riski amalia.png" alt="product image" />
-      </a>
-      <div class="px-5 pb-5">
-          <a href="#">
-              <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white text-center">Riski Amalia Medika</h5>
-          </a>
-      </div>
-    </div>
-    <div class="w-full max-w-xs bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mx-auto">
-      <a href="#">
-          <img class="p-8 rounded-t-lg w-3/4 mx-auto" src="../img/riski amalia.png" alt="product image" />
-      </a>
-      <div class="px-5 pb-5">
-          <a href="#">
-              <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white text-center">Riski Amalia Medika</h5>
-          </a>
-      </div>
-    </div>
-    <div class="w-full max-w-xs bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 justify-self-start">
-      <a href="#">
-          <img class="p-8 rounded-t-lg w-3/4 mx-auto" src="../img/riski amalia.png" alt="product image" />
-      </a>
-      <div class="px-5 pb-5">
-          <a href="#">
-              <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white text-center">Riski Amalia Medika</h5>
-          </a>
-      </div>
-    </div>
-  </div>
-
-  <div class="grid grid-cols-3 auto-cols-min mt-10">
-    <div class="w-full max-w-xs bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 justify-self-end">
-      <a href="#">
-          <img class="p-8 rounded-t-lg w-3/4 mx-auto" src="../img/riski amalia.png" alt="product image" />
-      </a>
-      <div class="px-5 pb-5">
-          <a href="#">
-              <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white text-center">Riski Amalia Medika</h5>
-          </a>
-      </div>
-    </div>
-    <div class="w-full max-w-xs bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mx-auto">
-      <a href="#">
-          <img class="p-8 rounded-t-lg w-3/4 mx-auto" src="../img/riski amalia.png" alt="product image" />
-      </a>
-      <div class="px-5 pb-5">
-          <a href="#">
-              <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white text-center">Riski Amalia Medika</h5>
-          </a>
-      </div>
-    </div>
-    <div class="w-full max-w-xs bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 justify-self-start">
-      <a href="#">
-          <img class="p-8 rounded-t-lg w-3/4 mx-auto" src="../img/riski amalia.png" alt="product image" />
-      </a>
-      <div class="px-5 pb-5">
-          <a href="#">
-              <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white text-center">Riski Amalia Medika</h5>
-          </a>
-      </div>
-    </div>
-  </div>
-
-  <div class="mt-10 flex justify-end mr-48">
-    <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-      Choose plan
-      <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-      </svg>
-    </button>
-  </div>
-
 </body>
+
 </html>
+
+
+<script>
+    $.ajax({
+        url: "{!! route('stoks.index') !!}",
+        type: "GET",
+        dataType: "json",
+        success: function(response) {
+            // Check if response data is an array
+            if (Array.isArray(response)) {
+                // Handle the response data
+                var html = '';
+                response.forEach(function(item) {
+                    html +=
+                        '<div class="w-full max-w-xs bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 justify-self-end">';
+                    html += '<a href="#">';
+                    html += '<img class="p-8 rounded-t-lg w-3/4 mx-auto" src="' + item.hospital
+                        .logo +
+                        '" alt="hospital logo" />'; // Mengambil gambar rumah sakit dari response
+                    html += '</a>';
+                    html += '<div class="px-5 pb-5">';
+                    html += '<a href="#">';
+                    html +=
+                        '<h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white text-center">' +
+                        item.hospital.name + '</h5>'; // Mengambil nama rumah sakit dari response
+                    html += '</a>';
+                    html += '</div>';
+                    html += '</div>';
+                });
+                $('#hospital-data-container').html(html);
+            } else {
+                console.log("Invalid data format. Expected an array.");
+            }
+        },
+        error: function(xhr, status, error) {
+            // Handle errors, if any
+            console.log(error);
+        }
+    });
+    $(document).ready(function() {
+        // Tambahkan event click ke setiap kartu rumah sakit
+        $(document).on('click', '.hospital-card', function(e) {
+            e.preventDefault();
+            
+            var hospitalId = $(this).data('hospital-id'); // Dapatkan ID rumah sakit dari data-attribute
+
+            // Lakukan AJAX request untuk mendapatkan item dari rumah sakit tertentu
+            $.ajax({
+                url: '/stoks?hospital_id=' + hospitalId, // Sesuaikan dengan URL rute yang sesuai di aplikasi Laravel Anda
+                type: 'GET',
+                dataType: 'json',
+                success: function(response) {
+                    // Handle response data, misalnya, menampilkan item dalam modal
+                    console.log(response);
+                },
+                error: function(xhr, status, error) {
+                    console.error(error);
+                }
+            });
+        });
+    });
+
+</script>

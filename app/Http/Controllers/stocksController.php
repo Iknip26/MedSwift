@@ -8,12 +8,18 @@ use Illuminate\Http\Request;
 
 class stocksController extends Controller
 {
-    public function indexstocks (){
-        $stock = Stock::all();
-        return Stock::collection(($stock));
+    public function index (){
+        $stock = Stock::with('Hospital','item')->get();
+        return response()->json($stock);
     }
 
-    public function postStock(Request $request)
+    public function show($id)
+    {
+        $item = Stock::findOrFail($id);
+        return response()->json($item);
+    }
+
+    public function store(Request $request)
     {
         $this->validate($request, [
             'hospital_id' => 'required|exists:hospitals,id',
@@ -34,7 +40,7 @@ class stocksController extends Controller
         }
     }
 
-    public function updateStock(Request $request, string $id)
+    public function update(Request $request, string $id)
     {
         $stockUpdate = Stock::find($id);
         if ($stockUpdate) {
@@ -65,7 +71,7 @@ class stocksController extends Controller
         }
     }
 
-    public function deleteStock(string $id)
+    public function delete(string $id)
     {
         $stockDelete = Stock::find($id);
         if ($stockDelete) {

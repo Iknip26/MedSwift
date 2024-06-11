@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\DrugController;
+use App\Http\Controllers\HospitalController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\stocksController;
 use App\Models\Item;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -34,7 +36,18 @@ Route::delete('deleteitem/{id}', [ItemController::class, 'deleteitem']);
 // Route::get('showHospital/{id}', [HospitalController::class, 'show']);
 // Route::delete('deleteHospital/{id}', [HospitalController::class, 'deleteitem']);
 
-Route::apiResource('hospital', HospitalController::class);
+Route::apiResource('hospital', HospitalController::class)->names([
+    'index'   => 'hospital.index',
+    'store'   => 'hospital.store',
+    'show'    => 'hospital.show',
+    'update'  => 'hospital.update',
+    'destroy' => 'hospital.destroy',
+]);
 Route::apiResource('orders', OrderController::class);
 Route::apiResource('drug', DrugController::class);
+
+Route::apiResource('stoks', stocksController::class)->names([
+    'index' => 'stoks.index',
+    'show' => 'stoks.show',
+]);
 
