@@ -30,3 +30,4 @@ Route::delete('deleteitem/{id}', [ItemController::class, 'deleteitem']);
 
 Route::apiResource('orders', OrderController::class);
 Route::apiResource('drug', DrugController::class);
+
