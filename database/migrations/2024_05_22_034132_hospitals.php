@@ -17,8 +17,8 @@ return new class extends Migration
             $table->string('logo');
             $table->string('adress');
             $table->string('desc');
-            $table->date('open_time');
-            $table->date('close_time');
+            $table->time('open_time');
+            $table->time('close_time');
             $table->timestamps();
         });
     }

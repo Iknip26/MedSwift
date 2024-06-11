@@ -84,19 +84,21 @@
     </form>
   </div> -->
 
+
     <div class="mt-10">
-        <p class="text-4xl font-semibold text-gray-900 dark:text-white mt-10 ml-48">Choose Your Hospital</p>
+        <p class="text-4xl font-semibold text-gray-900 mt-10 ml-48">Choose Your Hospital</p>
     </div>
 
-    <div id="hospital-data-container" class="grid grid-cols-3 auto-cols-min mt-10">
+    <div id="hospital-data-container" class="flex flex-row justify-center items-center auto-cols-min mt-10 space-x-20">
         <!-- Data will be appended here -->
     </div>
 </body>
 
 </html>
 
-
 <script>
+    let rumahSakit = [];
+    // console.log(rumahSakit.length);
     $.ajax({
         url: "{!! route('stoks.index') !!}",
         type: "GET",
@@ -107,21 +109,29 @@
                 // Handle the response data
                 var html = '';
                 response.forEach(function(item) {
-                    html +=
-                        '<div class="w-full max-w-xs bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 justify-self-end">';
-                    html += '<a href="#">';
-                    html += '<img class="p-8 rounded-t-lg w-3/4 mx-auto" src="' + item.hospital
-                        .logo +
-                        '" alt="hospital logo" />'; // Mengambil gambar rumah sakit dari response
-                    html += '</a>';
-                    html += '<div class="px-5 pb-5">';
-                    html += '<a href="#">';
-                    html +=
-                        '<h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white text-center">' +
-                        item.hospital.name + '</h5>'; // Mengambil nama rumah sakit dari response
-                    html += '</a>';
-                    html += '</div>';
-                    html += '</div>';
+                    if (!rumahSakit.includes(item.hospital.name)) {
+                        rumahSakit[rumahSakit.length] = item.hospital.name;
+                        html +=
+                            '<div class="w-full h-80 max-w-xs bg-white border border-gray-200 rounded-2xl shadow-md shadow-slate-800 justify-self-end">';
+                        // html += '<a href="' +
+                        //     "{{ route('stock.detail', ['hospital_id' => '"${item.hospital_id}"']) }}" +
+                        //     '">';
+                        html +=
+                            '<a href="{{ route('stock.detail', ['hospital_id' => '+ item.hospital_id +']) }}"';
+                        html += '<img class="p-8 rounded-t-lg w-3/4 mx-auto" src="' + item.hospital
+                            .logo +
+                            '" alt="hospital logo" />'; // Mengambil gambar rumah sakit dari response
+                        html += '</a>';
+                        html += '<div class="px-5 pb-5">';
+                        html += '<a href="#">';
+                        html +=
+                            '<h5 class="text-xl font-semibold tracking-tight text-gray-900 text-center">' +
+                            item.hospital.name +
+                            '</h5>'; // Mengambil nama rumah sakit dari response
+                        html += '</a>';
+                        html += '</div>';
+                        html += '</div>';
+                    }
                 });
                 $('#hospital-data-container').html(html);
             } else {
@@ -137,12 +147,13 @@
         // Tambahkan event click ke setiap kartu rumah sakit
         $(document).on('click', '.hospital-card', function(e) {
             e.preventDefault();
-            
+
             var hospitalId = $(this).data('hospital-id'); // Dapatkan ID rumah sakit dari data-attribute
 
             // Lakukan AJAX request untuk mendapatkan item dari rumah sakit tertentu
             $.ajax({
-                url: '/stoks?hospital_id=' + hospitalId, // Sesuaikan dengan URL rute yang sesuai di aplikasi Laravel Anda
+                url: '/stoks?hospital_id=' +
+                    hospitalId, // Sesuaikan dengan URL rute yang sesuai di aplikasi Laravel Anda
                 type: 'GET',
                 dataType: 'json',
                 success: function(response) {
@@ -155,5 +166,4 @@
             });
         });
     });
-
 </script>

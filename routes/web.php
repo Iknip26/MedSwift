@@ -32,7 +32,7 @@ Route::get('/catalog', function () {
 
 Route::get('/detail', function () {
     return view('detail');
-});
+})->name('stock.detail');;
 
 Route::get('/toko', function () {
     return view('toko');
