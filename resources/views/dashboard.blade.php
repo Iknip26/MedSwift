@@ -117,7 +117,7 @@
                         //     "{{ route('stock.detail', ['hospital_id' => '"${item.hospital_id}"']) }}" +
                         //     '">';
                         html +=
-                            '<a href="{{ route('stock.detail', ['hospital_id' => '+ item.hospital_id +']) }}"';
+                            '<a href="{{ route('stock.detail', ['hospital_id' => '+ item.hospital_id +']) }}">'
                         html += '<img class="p-8 rounded-t-lg w-3/4 mx-auto" src="' + item.hospital
                             .logo +
                             '" alt="hospital logo" />'; // Mengambil gambar rumah sakit dari response
