@@ -71,7 +71,7 @@ class DrugController extends Controller
                 'Message: ' => 'We could not find the Drug.',
             ], 500);
         }
-    
+
     }
     public function delete(string $id){
         $deleteDrug = Drug::find($id);

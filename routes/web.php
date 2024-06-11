@@ -14,7 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('homepage');
+    return view('homepage')
+    ;
 });
 
 Route::get('/login', function () {
@@ -23,6 +24,14 @@ Route::get('/login', function () {
 
 Route::get('/dashboard', function () {
     return view('dashboard');
+});
+
+Route::get('/catalog', function () {
+    return view('catalog');
+});
+
+Route::get('/detail', function () {
+    return view('detail');
 });
 
 Route::get('/toko', function () {
