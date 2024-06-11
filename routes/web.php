@@ -32,3 +32,7 @@ Route::get('/catalog', function () {
 Route::get('/detail', function () {
     return view('detail');
 });
+
+Route::get('/toko', function () {
+    return view('toko');
+});
