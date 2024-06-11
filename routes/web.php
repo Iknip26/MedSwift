@@ -25,6 +25,10 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 });
 
-Route::get('/toko', function () {
-    return view('toko');
+Route::get('/catalog', function () {
+    return view('catalog');
+});
+
+Route::get('/detail', function () {
+    return view('detail');
 });
