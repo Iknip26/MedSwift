@@ -17,8 +17,13 @@ class HospitalFactory extends Factory
     {
         return [
             'name' => $this->faker->company,
+            'logo' => $this->faker->imageUrl,
             'adress' => $this->faker->address,
-            'desc' => $this->faker->text(200),
+            'desc' => $this->faker->text,
+            'open_time' => $this->faker->date,
+            'close_time' => $this->faker->date,
+            'created_at' => now(),
+            'updated_at' => now(),
         ];
     }
 }

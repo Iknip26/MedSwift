@@ -19,10 +19,12 @@ return new class extends Migration
             $table->date('birth_date');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('adress');
             $table->rememberToken();
             $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.
