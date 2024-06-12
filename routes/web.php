@@ -24,7 +24,7 @@ Route::get('/login', function () {
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-});
+})->name('dashboard');
 
 Route::get('/catalog', function () {
     return view('catalog');

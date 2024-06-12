@@ -29,8 +29,8 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/logout', [AuthenticationController::class, 'logout']);
 });
 
-Route::post('/register', [AuthenticationController::class, 'register']);
-Route::post('/login', [AuthenticationController::class, 'login']);
+Route::post('/register', [AuthenticationController::class, 'register'])->name('register');
+Route::post('/login', [AuthenticationController::class, 'login'])->name('login');
 
 Route::put('updateItem/{id}', [ItemController::class, 'update']);
 Route::post('storeItems/', [ItemController::class, 'store']);
