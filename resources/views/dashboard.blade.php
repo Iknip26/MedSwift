@@ -9,32 +9,54 @@
 </head>
 
 <body class="bg-gradient-to-r from-blue-50 to-purple-50 min-h-screen relative">
-    <nav class="bg-white fixed w-full z-20 top-0 start-0 border-b">
+    <nav class="bg-white fixed w-full z-20 top-0 start-0 border-b py-4">
         <div class="max-w-screen-xl flex items-center justify-between mx-auto p-4">
             <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
                 <h1 class="text-4xl text-med">Med<span class="text-4xl text-swift">Swift</span></h1>
             </a>
-            <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-                <button type="button"
-                    class="text-nav_warna hover:text-white border border-swift hover:bg-swift focus:ring-4 focus:outline-none focus:ring-nav_warna rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Masuk/Daftar</button>
+
+            <div class="flex flex-row md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+                <button class="me-6" type="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 38 38"
+                        fill="none">
+                        <g clip-path="url(#clip0_36_39)">
+                            <path
+                                d="M35.9622 6.45525C35.5169 5.92078 34.9593 5.49092 34.3291 5.19621C33.6989 4.90149 33.0115 4.74915 32.3158 4.75H6.7165L6.65 4.19425C6.51391 3.03908 5.95869 1.97399 5.08961 1.20092C4.22053 0.427854 3.09799 0.000541173 1.93483 0L1.58333 0C1.16341 0 0.76068 0.166815 0.463748 0.463748C0.166815 0.76068 0 1.16341 0 1.58333C0 2.00326 0.166815 2.40599 0.463748 2.70292C0.76068 2.99985 1.16341 3.16667 1.58333 3.16667H1.93483C2.32264 3.16672 2.69695 3.3091 2.98676 3.5668C3.27656 3.8245 3.46171 4.1796 3.50708 4.56475L5.68575 23.0897C5.91193 25.0163 6.83759 26.7928 8.28702 28.082C9.73645 29.3712 11.6088 30.0834 13.5486 30.0833H30.0833C30.5033 30.0833 30.906 29.9165 31.2029 29.6196C31.4999 29.3227 31.6667 28.9199 31.6667 28.5C31.6667 28.0801 31.4999 27.6773 31.2029 27.3804C30.906 27.0835 30.5033 26.9167 30.0833 26.9167H13.5486C12.5686 26.9139 11.6134 26.6081 10.8141 26.0412C10.0147 25.4743 9.41025 24.674 9.08358 23.75H27.9569C29.813 23.7501 31.6102 23.098 33.0344 21.9077C34.4586 20.7174 35.4192 19.0644 35.7485 17.2377L36.9914 10.3439C37.1155 9.65993 37.0876 8.95702 36.9097 8.28501C36.7319 7.613 36.4084 6.98832 35.9622 6.45525ZM33.8833 9.78183L32.6388 16.6757C32.4411 17.7729 31.8637 18.7657 31.0078 19.4801C30.1518 20.1945 29.0718 20.585 27.9569 20.5833H8.58008L7.09017 7.91667H32.3158C32.5484 7.91528 32.7785 7.96515 32.9896 8.06274C33.2007 8.16033 33.3878 8.30323 33.5374 8.48129C33.6871 8.65936 33.7956 8.8682 33.8554 9.09298C33.9152 9.31776 33.9247 9.55295 33.8833 9.78183Z"
+                                fill="#4868D8" />
+                            <path
+                                d="M11.0834 38C12.8323 38 14.2501 36.5822 14.2501 34.8333C14.2501 33.0844 12.8323 31.6666 11.0834 31.6666C9.33451 31.6666 7.91675 33.0844 7.91675 34.8333C7.91675 36.5822 9.33451 38 11.0834 38Z"
+                                fill="#4868D8" />
+                            <path
+                                d="M26.9167 38C28.6656 38 30.0833 36.5822 30.0833 34.8333C30.0833 33.0844 28.6656 31.6666 26.9167 31.6666C25.1678 31.6666 23.75 33.0844 23.75 34.8333C23.75 36.5822 25.1678 38 26.9167 38Z"
+                                fill="#4868D8" />
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_36_39">
+                                <rect width="38" height="38" fill="white" />
+                            </clipPath>
+                        </defs>
+                    </svg>
+                </button>
+
+
+                <button class="ms-10" type="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44"
+                        fill="none">
+                        <g clip-path="url(#clip0_36_35)">
+                            <path
+                                d="M22 0C9.86883 0 0 9.86883 0 22C0 34.1312 9.86883 44 22 44C34.1312 44 44 34.1312 44 22C44 9.86883 34.1312 0 22 0ZM14.6667 38.8007V38.5C14.6667 34.4557 17.9557 31.1667 22 31.1667C26.0443 31.1667 29.3333 34.4557 29.3333 38.5V38.8007C27.0857 39.7852 24.607 40.3333 22 40.3333C19.393 40.3333 16.9143 39.7852 14.6667 38.8007ZM32.8625 36.7602C32.0265 31.5187 27.4743 27.5 22 27.5C16.5257 27.5 11.9753 31.5187 11.1375 36.7602C6.60917 33.418 3.66667 28.0463 3.66667 22C3.66667 11.891 11.891 3.66667 22 3.66667C32.109 3.66667 40.3333 11.891 40.3333 22C40.3333 28.0463 37.3908 33.418 32.8625 36.7602ZM22 9.16667C17.9557 9.16667 14.6667 12.4557 14.6667 16.5C14.6667 20.5443 17.9557 23.8333 22 23.8333C26.0443 23.8333 29.3333 20.5443 29.3333 16.5C29.3333 12.4557 26.0443 9.16667 22 9.16667ZM22 20.1667C19.9778 20.1667 18.3333 18.5222 18.3333 16.5C18.3333 14.4778 19.9778 12.8333 22 12.8333C24.0222 12.8333 25.6667 14.4778 25.6667 16.5C25.6667 18.5222 24.0222 20.1667 22 20.1667Z"
+                                fill="#4868D8" />
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_36_35">
+                                <rect width="44" height="44" fill="white" />
+                            </clipPath>
+                        </defs>
+                    </svg>
+                </button>
+
             </div>
-            <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
-                <ul
-                    class="flex flex-col p-4 md:p-0 mt-4 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0">
-                    <li>
-                        <a href="#" class="block py-2 px-3 text-xl text-nav_warna hover:underline">Home</a>
-                    </li>
-                    <li>
-                        <a href="#" class="block py-2 px-3 text-xl text-nav_warna hover:underline">About</a>
-                    </li>
-                    <li>
-                        <a href="#" class="block py-2 px-3 text-xl text-nav_warna hover:underline">Feature</a>
-                    </li>
-                    <li>
-                        <a href="#" class="block py-2 px-3 text-xl text-nav_warna hover:underline">Contact</a>
-                    </li>
-                </ul>
-            </div>
+
         </div>
     </nav>
 
@@ -48,41 +70,6 @@
         </div>
     </div>
 
-    <!-- <div class="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-    <form class="max-w-lg mx-auto">
-      <div class="flex">
-          <label for="search-dropdown" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Your Email</label>
-          <button id="dropdown-button" data-dropdown-toggle="dropdown" class="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-s-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600" type="button">All categories <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
-    </svg></button>
-          <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-              <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdown-button">
-              <li>
-                  <button type="button" class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Mockups</button>
-              </li>
-              <li>
-                  <button type="button" class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Templates</button>
-              </li>
-              <li>
-                  <button type="button" class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Design</button>
-              </li>
-              <li>
-                  <button type="button" class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Logos</button>
-              </li>
-              </ul>
-          </div>
-          <div class="relative w-full">
-              <input type="search" id="search-dropdown" class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-e-lg border-s-gray-50 border-s-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-s-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500" placeholder="Search Mockups, Logos, Design Templates..." required />
-              <button type="submit" class="absolute top-0 end-0 p-2.5 text-sm font-medium h-full text-white bg-blue-700 rounded-e-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                  <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
-                  </svg>
-                  <span class="sr-only">Search</span>
-              </button>
-          </div>
-      </div>
-    </form>
-  </div> -->
 
 
     <div class="mt-10">
@@ -98,90 +85,6 @@
 </html>
 
 <script>
-    // let rumahSakit = [];
-    // let id_RS;
-    // // console.log(rumahSakit.length);
-    // $.ajax({
-    //     url: "{!! route('stoks.index') !!}",
-    //     type: "GET",
-    //     dataType: "json",
-    //     success: function(response) {
-    //         // Check if response data is an array
-    //         if (Array.isArray(response)) {
-    //             // Handle the response data
-    //             var html = '';
-    //             response.forEach(function(item) {
-    //                 // console.log(item.hospital_id);
-    //                 if (!rumahSakit.includes(item.hospital.name)) {
-    //                     rumahSakit[rumahSakit.length] = item.hospital.name;
-    //                     id_RS = item.hospital_id;
-    //                     html +=
-    //                         '<button onclick="seeStock('
-    //                     $ {
-    //                         id_RS
-    //                     }
-    //                     ')" class="w-full h-80 max-w-xs bg-white border border-gray-200 rounded-2xl shadow-md shadow-slate-800 justify-self-end">';
-    //                     // html += '<a href="' +
-    //                     //     "{{ route('stock.detail', ['hospital_id' => '"${item.hospital_id}"']) }}" +
-    //                     //     '">';
-    //                     // html +=
-    //                     //     '<a href="{{ route('stock.detail', ['hospital_id' => '+ item.hospital_id +']) }}">';
-    //                     html +=
-    //                         `<a href="">`
-    //                     html += '<img class="p-8 rounded-t-lg w-3/4 mx-auto" src="' + item.hospital
-    //                         .logo +
-    //                         '" alt="hospital logo" />'; // Mengambil gambar rumah sakit dari response
-    //                     html += '</a>';
-    //                     html += '<div class="px-5 pb-5">';
-    //                     html += '<a href="#">';
-    //                     html +=
-    //                         '<h5 class="text-xl font-semibold tracking-tight text-gray-900 text-center">' +
-    //                         item.hospital.name +
-    //                         '</h5>'; // Mengambil nama rumah sakit dari response
-    //                     html += '</a>';
-    //                     html += '</buttonx>';
-    //                     html += '</div>';
-    //                 }
-    //             });
-    //             $('#hospital-data-container').html(html);
-    //         } else {
-    //             console.log("Invalid data format. Expected an array.");
-    //         }
-    //     },
-    //     error: function(xhr, status, error) {
-    //         // Handle errors, if any
-    //         console.log(error);
-    //     }
-    // });
-    // $(document).ready(function() {
-    //     // Tambahkan event click ke setiap kartu rumah sakit
-    //     $(document).on('click', '.hospital-card', function(e) {
-    //         e.preventDefault();
-
-    //         var hospitalId = $(this).data('hospital-id'); // Dapatkan ID rumah sakit dari data-attribute
-
-    //         // Lakukan AJAX request untuk mendapatkan item dari rumah sakit tertentu
-    //         $.ajax({
-    //             url: '/stoks?hospital_id=' +
-    //                 hospitalId, // Sesuaikan dengan URL rute yang sesuai di aplikasi Laravel Anda
-    //             type: 'GET',
-    //             dataType: 'json',
-    //             success: function(response) {
-    //                 // Handle response data, misalnya, menampilkan item dalam modal
-    //                 console.log(response);
-    //             },
-    //             error: function(xhr, status, error) {
-    //                 console.error(error);
-    //             }
-    //         });
-    //     });
-    // });
-
-    // function seeStock(id) {
-    //     window.location.href = "{{ route('stock.detail', ['hospital_id' => 'id']) }}";
-    // }
-    // }
-
     let id_hospital;
     let listRumahSakit = [];
 
