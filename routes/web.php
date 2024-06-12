@@ -34,6 +34,11 @@ Route::get('/detail', function () {
     return view('detail');
 })->name('stock.detail');;
 
+Route::get('/Product_detail', function () {
+    return view('ProductDetail');
+})->name('stock.Product_detail');;
+
+
 Route::get('/toko', function () {
     return view('toko');
 });

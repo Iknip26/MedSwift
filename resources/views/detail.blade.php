@@ -328,137 +328,127 @@
     </style>
 </head>
 
-<body class="bg-gradient-to-br from-biru via-slate-200 to-ping h-full">
-    <div class="container">
-        <header>
-            <div class="title">
-                <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
-                    <h1 class="text-4xl text-med">Med<span class="text-4xl text-swift">Swift</span></h1>
-                </a>
-            </div>
-            <div class="icon-cart">
-                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M6 15a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm0 0h8m-8 0-1-4m9 4a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-9-4h10l2-7H3m2 7L3 4m0 0-.792-3H1" />
-                </svg>
-                <span>0</span>
-            </div>
-        </header>
-        <div id="contentTab">
-            <div id="app"></div>
-            <div id="temporaryContent">
-                <div class="title">PRODUCT DETAIL</div>
-                <div class="detail">
-                    <div class="image">
-                        <img src="">
-                    </div>
-                    <div class="content">
-                        <h1 class="name"></h1>
-                        <div class="price"></div>
-                        <div class="buttons">
-                            <button>Check Out</button>
-                            <button class="addCart">Add To Cart
-                                <span>
-                                    <svg class="" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                        fill="none" viewBox="0 0 18 20">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2"
-                                            d="M6 15a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm0 0h8m-8 0-1-4m9 4a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-9-4h10l2-7H3m2 7L3 4m0 0-.792-3H1" />
-                                    </svg>
-                                </span>
-                            </button>
-                        </div>
-                        <div class="description"></div>
-                    </div>
-                </div>
+<body class="w-full h-full flex flex-col">
+    <header class="w-full h-fit p-10 px-12 bg-white flex flex-row">
+        <div class="title">
+            <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+                <h1 class="text-5xl text-med">Med<span class="text-4xl text-swift">Swift</span></h1>
+            </a>
+        </div>
 
-                <div class="title pt-5 pb-5">Similar product</div>
-                <div id="listProduct"
-                    class="listProduct w-full h-fit py-6 flex flex-row items-center justify-center px-10">
+        <div class="icon-cart h-10 flex flex-row justify-end w-full">
+            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M6 15a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm0 0h8m-8 0-1-4m9 4a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-9-4h10l2-7H3m2 7L3 4m0 0-.792-3H1" />
+            </svg>
+            {{-- <span
+                class="mt-4 w-6 h-6 flex flex-row justify-center items-center bg-red-500 p-1 rounded-full text-white text-sm ms-[-10px]">3</span> --}}
 
-                </div>
-            </div>
+            <svg class="ms-10" xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44"
+                fill="none">
+                <g clip-path="url(#clip0_36_35)">
+                    <path
+                        d="M22 0C9.86883 0 0 9.86883 0 22C0 34.1312 9.86883 44 22 44C34.1312 44 44 34.1312 44 22C44 9.86883 34.1312 0 22 0ZM14.6667 38.8007V38.5C14.6667 34.4557 17.9557 31.1667 22 31.1667C26.0443 31.1667 29.3333 34.4557 29.3333 38.5V38.8007C27.0857 39.7852 24.607 40.3333 22 40.3333C19.393 40.3333 16.9143 39.7852 14.6667 38.8007ZM32.8625 36.7602C32.0265 31.5187 27.4743 27.5 22 27.5C16.5257 27.5 11.9753 31.5187 11.1375 36.7602C6.60917 33.418 3.66667 28.0463 3.66667 22C3.66667 11.891 11.891 3.66667 22 3.66667C32.109 3.66667 40.3333 11.891 40.3333 22C40.3333 28.0463 37.3908 33.418 32.8625 36.7602ZM22 9.16667C17.9557 9.16667 14.6667 12.4557 14.6667 16.5C14.6667 20.5443 17.9557 23.8333 22 23.8333C26.0443 23.8333 29.3333 20.5443 29.3333 16.5C29.3333 12.4557 26.0443 9.16667 22 9.16667ZM22 20.1667C19.9778 20.1667 18.3333 18.5222 18.3333 16.5C18.3333 14.4778 19.9778 12.8333 22 12.8333C24.0222 12.8333 25.6667 14.4778 25.6667 16.5C25.6667 18.5222 24.0222 20.1667 22 20.1667Z"
+                        fill="#000000">
+                </g>
+                <defs>
+                    <clipPath id="clip0_36_35">
+                        <rect width="44" height="44" fill="white" />
+                    </clipPath>
+                </defs>
+            </svg>
+        </div>
+    </header>
+
+    <div class=" bg-gradient-to-r from-[#e4f6ff] to-white w-full h-fit flex flex-col items-center py-10">
+        <p class="text-5xl font-semibold mt-20">AVAIBLE PRODUCTS</p>
+        <div id="listProduct"
+            class="w-full h-fit py-6 flex flex-row items-center justify-center px-10 mt-12 flex-wrap space-x-20">
+
         </div>
     </div>
 
-    <div class="cartTab">
-        <h1>Shopping Cart</h1>
-        <div class="listCart"></div>
-        <div class="btn">
-            <button class="close">CLOSE</button>
-            <button class="checkOut">Check Out</button>
-        </div>
-    </div>
-
-    <script>
-        let app = document.getElementById('app');
-        let temporaryContent = document.getElementById('temporaryContent');
-
-        async function fetchProjects() {
-            try {
-                const response = await fetch(`http://127.0.0.1:8000/api/stoks`);
-                data = await response.json();
-                // console.log(data);
-                id_hospital = data.hospital_id;
-                displayProjects(data);
-            } catch (error) {
-                console.error('Error:', error);
-            }
-        }
-
-
-        function displayProjects(items) {
-            let projectList = document.getElementById('listProduct');
-            projectList.innerHTML = '';
-
-            items.forEach(item => {
-                if (item.hospital_id == getHospitalIdFromURL()) {
-                    const card = document.createElement('button');
-                    card.classList.add('p-4', 'w-64', 'h-[30rem]', 'flex', 'flex-col', 'items-center',
-                        'bg-[#AD88C6]',
-                        'justofy-center',
-                        'bg-white', 'rounded-2xl', 'shadow-md', 'shadow-slate-800');
-                    card.setAttribute('onclick', `goToStocks(${item.hospital_id})`);
-
-                    const imageRS = document.createElement("img");
-                    imageRS.classList.add('w-64', 'h-64');
-                    imageRS.setAttribute('src', item["item"].image_picture);
-
-                    const namaRS = document.createElement("p");
-                    namaRS.classList.add('text-xl', 'font-semibold', 'mt-6');
-                    namaRS.textContent = item["item"].product_name;
-
-                    const hargaObat = document.createElement("p");
-                    hargaObat.classList.add('text-xl', 'font-regular', 'mt-6');
-                    hargaObat.textContent = item["item"].price;
-
-                    const buttonAdd = document.createElement('button');
-                    buttonAdd.classList.add('py-2', 'px-4', 'bg-blue-800', 'rounded-full', 'my-6', 'text-white',
-                        'font-semibold')
-                    buttonAdd.textContent = "Add to Cart";
-
-
-                    card.appendChild(imageRS);
-                    card.appendChild(namaRS);
-                    card.appendChild(hargaObat);
-                    card.appendChild(buttonAdd);
-                    projectList.appendChild(card);
-                }
-
-            });
-        }
-
-        function getHospitalIdFromURL() {
-            const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get('hospital_id');
-        }
-
-        function goToDetail(id) {
-            window.location.href = "{{ route('drug.show', ['hospital_id' => '']) }}" + id;
-        }
-
-        fetchProjects();
-    </script>
 </body>
+
+
+
+<script>
+    let app = document.getElementById('app');
+    let temporaryContent = document.getElementById('temporaryContent');
+
+    async function fetchProjects() {
+        try {
+            const response = await fetch(`http://127.0.0.1:8000/api/stoks`);
+            data = await response.json();
+            // console.log(data);
+            id_hospital = data.hospital_id;
+            displayProjects(data);
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    }
+
+
+    function displayProjects(items) {
+        let projectList = document.getElementById('listProduct');
+        projectList.innerHTML = '';
+
+        items.forEach(item => {
+            if (item.hospital_id == getHospitalIdFromURL()) {
+
+                const card = document.createElement('button');
+                card.classList.add('p-4', 'w-64', 'h-[30rem]', 'flex', 'flex-col', 'items-center',
+                    'bg-[#9999CB]',
+                    'justofy-center',
+                    'bg-white', 'rounded-2xl', 'shadow-md', 'shadow-slate-800');
+                card.setAttribute('onclick', `goToDetail(${item.hospital_id},${item["item"].id})`);
+
+                const imageRS = document.createElement("img");
+                imageRS.classList.add('w-64', 'h-64');
+                imageRS.setAttribute('src', item["item"].image_picture);
+
+                const namaRS = document.createElement("p");
+                namaRS.classList.add('text-xl', 'font-semibold', 'mt-6');
+                namaRS.textContent = item["item"].product_name;
+
+                const hargaObat = document.createElement("p");
+                hargaObat.classList.add('text-xl', 'font-regular', 'mt-6');
+                hargaObat.textContent = `RP ${parseFloat(item['item'].price).toFixed(0)}`;
+
+                const buttonAdd = document.createElement('button');
+                buttonAdd.classList.add('py-2', 'px-4', 'bg-blue-800', 'rounded-full', 'my-6', 'text-white',
+                    'font-semibold')
+                buttonAdd.textContent = "Add to Cart";
+
+
+                card.appendChild(imageRS);
+                card.appendChild(namaRS);
+                card.appendChild(hargaObat);
+                card.appendChild(buttonAdd);
+                projectList.appendChild(card);
+            }
+
+        });
+    }
+
+    function getHospitalIdFromURL() {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get('hospital_id');
+    }
+
+    function goToDetail(id_hospital, id_item) {
+        const params = {
+            product_id: id_item,
+            hospital_id: id_hospital
+        };
+
+        const url = new URL("{{ route('stock.Product_detail') }}");
+        Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
+
+        window.location.href = url.toString();
+    }
+
+    fetchProjects();
+</script>
 
 </html>
