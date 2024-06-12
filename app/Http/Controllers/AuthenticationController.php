@@ -39,16 +39,12 @@ class AuthenticationController extends Controller
         ]);
 
         $user = User::where('email', $request->email)->first();
-
         if (! $user || ! Hash::check($request->password, $user->password)) {
             throw ValidationException::withMessages([
                 'email' => ['The provided credentials are incorrect.'],
             ]);
         }
-
-        $token = $user->createToken('User Login')->plainTextToken;
-
-        return response()->json(['token' => $token]);
+        return $user->createToken('user login')->plainTextToken;
     }
 
     public function logout(Request $request) 
