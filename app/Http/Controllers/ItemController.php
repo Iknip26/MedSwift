@@ -10,7 +10,8 @@ class ItemController extends Controller
     // Get all items
     public function index()
     {
-        return Item::all();
+        $item = Item::all();
+        return response()->json($item);
         
     }
 

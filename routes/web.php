@@ -37,3 +37,7 @@ Route::get('/detail', function () {
 Route::get('/toko', function () {
     return view('toko');
 });
+
+Route::get('/paymend', function(){
+    return view('paymend');
+});

@@ -134,8 +134,8 @@ input[type="submit"]:hover{
 			<h3>PAYMENT</h3>
 			<form>
 				Accepted Card <br>
-				<img src="../img/card1.png" width="100">
-				<img src="../img/card2.png" width="50">
+				<img src="../img/card1.jpg" width="100">
+				<img src="../img/card2.jpg" width="50">
 				<br><br>
 
 				Credit card number
