@@ -89,7 +89,8 @@
         <p class="text-4xl font-semibold text-gray-900 mt-10 ml-48">Choose Your Hospital</p>
     </div>
 
-    <div id="hospital-data-container" class="flex flex-row justify-center items-center auto-cols-min mt-10 space-x-20">
+    <div id="hospital-data-container"
+        class="flex flex-row justify-center items-center auto-cols-min mt-10 space-x-20 mb-16">
         <!-- Data will be appended here -->
     </div>
 </body>
@@ -97,73 +98,141 @@
 </html>
 
 <script>
-    let rumahSakit = [];
-    // console.log(rumahSakit.length);
-    $.ajax({
-        url: "{!! route('stoks.index') !!}",
-        type: "GET",
-        dataType: "json",
-        success: function(response) {
-            // Check if response data is an array
-            if (Array.isArray(response)) {
-                // Handle the response data
-                var html = '';
-                response.forEach(function(item) {
-                    if (!rumahSakit.includes(item.hospital.name)) {
-                        rumahSakit[rumahSakit.length] = item.hospital.name;
-                        html +=
-                            '<div class="w-full h-80 max-w-xs bg-white border border-gray-200 rounded-2xl shadow-md shadow-slate-800 justify-self-end">';
-                        // html += '<a href="' +
-                        //     "{{ route('stock.detail', ['hospital_id' => '"${item.hospital_id}"']) }}" +
-                        //     '">';
-                        html +=
-                            '<a href="{{ route('stock.detail', ['hospital_id' => '+ item.hospital_id +']) }}">'
-                        html += '<img class="p-8 rounded-t-lg w-3/4 mx-auto" src="' + item.hospital
-                            .logo +
-                            '" alt="hospital logo" />'; // Mengambil gambar rumah sakit dari response
-                        html += '</a>';
-                        html += '<div class="px-5 pb-5">';
-                        html += '<a href="#">';
-                        html +=
-                            '<h5 class="text-xl font-semibold tracking-tight text-gray-900 text-center">' +
-                            item.hospital.name +
-                            '</h5>'; // Mengambil nama rumah sakit dari response
-                        html += '</a>';
-                        html += '</div>';
-                        html += '</div>';
-                    }
-                });
-                $('#hospital-data-container').html(html);
-            } else {
-                console.log("Invalid data format. Expected an array.");
-            }
-        },
-        error: function(xhr, status, error) {
-            // Handle errors, if any
-            console.log(error);
+    // let rumahSakit = [];
+    // let id_RS;
+    // // console.log(rumahSakit.length);
+    // $.ajax({
+    //     url: "{!! route('stoks.index') !!}",
+    //     type: "GET",
+    //     dataType: "json",
+    //     success: function(response) {
+    //         // Check if response data is an array
+    //         if (Array.isArray(response)) {
+    //             // Handle the response data
+    //             var html = '';
+    //             response.forEach(function(item) {
+    //                 // console.log(item.hospital_id);
+    //                 if (!rumahSakit.includes(item.hospital.name)) {
+    //                     rumahSakit[rumahSakit.length] = item.hospital.name;
+    //                     id_RS = item.hospital_id;
+    //                     html +=
+    //                         '<button onclick="seeStock('
+    //                     $ {
+    //                         id_RS
+    //                     }
+    //                     ')" class="w-full h-80 max-w-xs bg-white border border-gray-200 rounded-2xl shadow-md shadow-slate-800 justify-self-end">';
+    //                     // html += '<a href="' +
+    //                     //     "{{ route('stock.detail', ['hospital_id' => '"${item.hospital_id}"']) }}" +
+    //                     //     '">';
+    //                     // html +=
+    //                     //     '<a href="{{ route('stock.detail', ['hospital_id' => '+ item.hospital_id +']) }}">';
+    //                     html +=
+    //                         `<a href="">`
+    //                     html += '<img class="p-8 rounded-t-lg w-3/4 mx-auto" src="' + item.hospital
+    //                         .logo +
+    //                         '" alt="hospital logo" />'; // Mengambil gambar rumah sakit dari response
+    //                     html += '</a>';
+    //                     html += '<div class="px-5 pb-5">';
+    //                     html += '<a href="#">';
+    //                     html +=
+    //                         '<h5 class="text-xl font-semibold tracking-tight text-gray-900 text-center">' +
+    //                         item.hospital.name +
+    //                         '</h5>'; // Mengambil nama rumah sakit dari response
+    //                     html += '</a>';
+    //                     html += '</buttonx>';
+    //                     html += '</div>';
+    //                 }
+    //             });
+    //             $('#hospital-data-container').html(html);
+    //         } else {
+    //             console.log("Invalid data format. Expected an array.");
+    //         }
+    //     },
+    //     error: function(xhr, status, error) {
+    //         // Handle errors, if any
+    //         console.log(error);
+    //     }
+    // });
+    // $(document).ready(function() {
+    //     // Tambahkan event click ke setiap kartu rumah sakit
+    //     $(document).on('click', '.hospital-card', function(e) {
+    //         e.preventDefault();
+
+    //         var hospitalId = $(this).data('hospital-id'); // Dapatkan ID rumah sakit dari data-attribute
+
+    //         // Lakukan AJAX request untuk mendapatkan item dari rumah sakit tertentu
+    //         $.ajax({
+    //             url: '/stoks?hospital_id=' +
+    //                 hospitalId, // Sesuaikan dengan URL rute yang sesuai di aplikasi Laravel Anda
+    //             type: 'GET',
+    //             dataType: 'json',
+    //             success: function(response) {
+    //                 // Handle response data, misalnya, menampilkan item dalam modal
+    //                 console.log(response);
+    //             },
+    //             error: function(xhr, status, error) {
+    //                 console.error(error);
+    //             }
+    //         });
+    //     });
+    // });
+
+    // function seeStock(id) {
+    //     window.location.href = "{{ route('stock.detail', ['hospital_id' => 'id']) }}";
+    // }
+    // }
+
+    let id_hospital;
+    let listRumahSakit = [];
+
+    async function fetchProjects() {
+        try {
+            const response = await fetch(`http://127.0.0.1:8000/api/stoks`);
+            data = await response.json();
+            // console.log(data);
+            id_hospital = data.hospital_id;
+            displayProjects(data);
+        } catch (error) {
+            console.error('Error:', error);
         }
-    });
-    $(document).ready(function() {
-        // Tambahkan event click ke setiap kartu rumah sakit
-        $(document).on('click', '.hospital-card', function(e) {
-            e.preventDefault();
+    }
 
-            var hospitalId = $(this).data('hospital-id'); // Dapatkan ID rumah sakit dari data-attribute
 
-            // Lakukan AJAX request untuk mendapatkan item dari rumah sakit tertentu
-            $.ajax({
-                url: '/stoks?hospital_id=' +
-                    hospitalId, // Sesuaikan dengan URL rute yang sesuai di aplikasi Laravel Anda
-                type: 'GET',
-                dataType: 'json',
-                success: function(response) {
-                    // Handle response data, misalnya, menampilkan item dalam modal
-                    console.log(response);
-                },
-                error: function(xhr, status, error) {
-                    console.error(error);
-                }
-            });
+    function displayProjects(items) {
+        const projectList = document.getElementById('hospital-data-container');
+        projectList.innerHTML = '';
+
+        items.forEach(item => {
+            if (!listRumahSakit.includes(item.hospital.name)) {
+                listRumahSakit[listRumahSakit.length] = item.hospital.name;
+                const card = document.createElement('button');
+                card.classList.add('p-4', 'w-fit', 'h-fit', 'flex', 'flex-col', 'items-center',
+                    'justofy-center',
+                    'bg-white', 'rounded-2xl', 'shadow-md', 'shadow-slate-800');
+                card.setAttribute('onclick', `goToStocks(${item.hospital_id})`);
+
+
+                const imageRS = document.createElement("img");
+                imageRS.classList.add('w-64', 'h-64');
+                imageRS.setAttribute('src', item["hospital"].logo);
+
+                const namaRS = document.createElement("p");
+                namaRS.classList.add('text-xl', 'font-semibold', 'mt-6');
+                namaRS.textContent = item["hospital"].name;
+
+                card.appendChild(imageRS);
+                card.appendChild(namaRS);
+                projectList.appendChild(card);
+            }
+
+
         });
-    });
+    }
+
+    function goToStocks(id) {
+        console.log(`xuadbayd${id}`)
+        window.location.href = "{{ route('stock.detail', ['hospital_id' => '']) }}" + id;
+    }
+
+    fetchProjects();
 </script>
