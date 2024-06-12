@@ -7,26 +7,39 @@ use Illuminate\Http\Request;
 
 class DrugController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $drug = Drug::all();
         return response()->json($drug);
     }
 
-    public function store(Request $request){
+    public function show($id)
+    {
+        $drug = Drug::find($id);
+
+        if ($drug) {
+            return response()->json($drug);
+        } else {
+            return response()->json(['message' => 'Drug not found'], 404);
+        }
+    }
+
+    public function store(Request $request)
+    {
         $this->validate($request, [
             'item_id' => 'required',
             'komposisi' => 'required',
-            'side_effect'=> 'required',
-            'dosage'=> 'required',
-            'using_guide'=> 'required',
+            'side_effect' => 'required',
+            'dosage' => 'required',
+            'using_guide' => 'required',
         ]);
 
         $postDrug = Drug::create([
-            'item_id'=> $request->input('item_id'),
-            'komposisi'=> $request->input('komposisi'),
-            'side_effect'=> $request->input('side_effect'),
-            'dosage'=> $request->input('dosage'),
-            'using_guide'=> $request->input('using_guide'),
+            'item_id' => $request->input('item_id'),
+            'komposisi' => $request->input('komposisi'),
+            'side_effect' => $request->input('side_effect'),
+            'dosage' => $request->input('dosage'),
+            'using_guide' => $request->input('using_guide'),
         ]);
 
         if ($postDrug) {
@@ -41,15 +54,18 @@ class DrugController extends Controller
         }
     }
 
-    public function update(Request $request, string $id){
+
+
+    public function update(Request $request, string $id)
+    {
         $updateDrug = Drug::find($id);
         if ($updateDrug) {
             $validatedata = $request->validate([
                 'item_id' => 'required',
                 'komposisi' => 'required',
-                'side_effect'=> 'required',
-                'dosage'=> 'required',
-                'using_guide'=> 'required',
+                'side_effect' => 'required',
+                'dosage' => 'required',
+                'using_guide' => 'required',
             ]);
             $updateDrug->item_id = $validatedata['item_id'];
             $updateDrug->komposisi = $validatedata['komposisi'];
@@ -71,9 +87,9 @@ class DrugController extends Controller
                 'Message: ' => 'We could not find the Drug.',
             ], 500);
         }
-
     }
-    public function delete(string $id){
+    public function delete(string $id)
+    {
         $deleteDrug = Drug::find($id);
         if ($deleteDrug) {
             $deleteDrug->delete();
