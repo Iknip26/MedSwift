@@ -20,14 +20,14 @@ class HospitalController extends Controller
     // Create a new item
     public function store(Request $request)
     {
-        dd($request);
+        // dd($request);
         $this->validate($request, [
             'name' => 'required|string|max:255',
-            'logo' => 'required|string|max:255',
+            'logo' => 'required|string',
             'adress' => 'required|string|max:255',
             'desc' => 'required|string|max:255',
-            'open_time' => 'required',
-            'close_time' => 'required'
+            'open_time' => 'required|string|max:255',
+            'close_time' => 'required|string|max:255'
         ]);
 
 
@@ -58,18 +58,19 @@ class HospitalController extends Controller
         if ($ItemskUpdate) {
             $validatedData = $request->validate([
                 'name' => 'required|string|max:255',
-                'logo' => 'required|string|max:255',
+                'logo' => 'required|string',
                 'adress' => 'required|string|max:255',
                 'desc' => 'required|string|max:255',
-                'open_time' => 'required',
-                'close_time' => 'required'
+                'open_time' => 'required|string|max:255',
+                'close_time' => 'required|string|max:255'
             ]);
 
-            $ItemskUpdate->product_name = $validatedData['product_name'];
-            $ItemskUpdate->category = $validatedData['category'];
-            $ItemskUpdate->description = $validatedData['description'];
-            $ItemskUpdate->item_type = $validatedData['item_type'];
-            $ItemskUpdate->price = $validatedData['price'];
+            $ItemskUpdate->name = $validatedData['name'];
+            $ItemskUpdate->logo = $validatedData['logo'];
+            $ItemskUpdate->adress = $validatedData['adress'];
+            $ItemskUpdate->desc = $validatedData['desc'];
+            $ItemskUpdate->open_time = $validatedData['open_time'];
+            $ItemskUpdate->close_time = $validatedData['close_time'];
 
             if ($ItemskUpdate->save()) {
                 return response()->json([
@@ -89,9 +90,9 @@ class HospitalController extends Controller
     }
 
 
-    public function delete(string $id)
+    public function destroy(string $id)
     {
-        $itemdelete = Hospital::find($id);
+        $itemdelete = Hospital::findOrFail($id);
         if ($itemdelete) {
             $itemdelete->delete();
             return response()->json([

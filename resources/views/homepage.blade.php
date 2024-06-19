@@ -9,7 +9,7 @@
   @vite('resources/css/app.css')
 </head>
 <body>
-  
+
 
 <nav class="bg-white fixed w-full z-20 top-0 start-0 border-b">
   <div class="max-w-screen-xl flex items-center justify-between mx-auto p-4">

@@ -88,7 +88,7 @@ class DrugController extends Controller
             ], 500);
         }
     }
-    public function delete(string $id)
+    public function destroy(string $id)
     {
         $deleteDrug = Drug::find($id);
         if ($deleteDrug) {

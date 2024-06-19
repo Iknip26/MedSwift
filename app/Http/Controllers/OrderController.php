@@ -40,13 +40,13 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'customer_id' => 'required|exists:users,id',
-            'hospital_id' => 'required|exists:hospitals,id',
-            'order_date' => 'required|date',
-            'payment_method' => 'required|in:cash,cashless',
-            'isPaymentSuccess' => 'required|boolean',
-            'shipment_date' => 'required|date',
-            'shipment_address' => 'required|string|max:255',
+            'customer_id' => 'required',
+            'hospital_id' => 'required',
+            'order_date' => 'required',
+            'payment_method' => 'required',
+            'isPaymentSuccess' => 'required',
+            'shipment_date' => 'required',
+            'shipment_address' => 'required'
         ]);
 
         if ($validator->fails()) {

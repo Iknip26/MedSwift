@@ -12,7 +12,7 @@ class ItemController extends Controller
     {
         $item = Item::all();
         return response()->json($item);
-        
+
     }
 
     // Create a new item
@@ -24,6 +24,7 @@ class ItemController extends Controller
             'description' => 'nullable|string',
             'item_type' => 'required|string|max:255',
             'price' => 'required|numeric',
+            'image_picture' => 'required'
         ]);
 
         $item = Item::create($validatedData);
@@ -48,12 +49,14 @@ class ItemController extends Controller
                 'description' => 'nullable|string',
                 'item_type' => 'required|string|max:255',
                 'price' => 'required|numeric',
+                'image_picture' => 'required'
             ]);
 
             $ItemskUpdate->product_name = $validatedData['product_name'];
             $ItemskUpdate->category = $validatedData['category'];
             $ItemskUpdate->description = $validatedData['description'];
             $ItemskUpdate->item_type = $validatedData['item_type'];
+            $ItemskUpdate->price = $validatedData['price'];
             $ItemskUpdate->price = $validatedData['price'];
 
             if ($ItemskUpdate->save()) {
